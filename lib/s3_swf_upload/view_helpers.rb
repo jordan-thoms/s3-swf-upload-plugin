@@ -46,15 +46,9 @@ module S3SwfUpload
     	onUploadSecurityError		= options[:onUploadSecurityError] || false
     	onUploadError						= options[:onUploadError] || false
     	
-      @include_s3_upload ||= false 
       @count ||= 1
       
       out = ''
-
-      if !@include_s3_upload
-        out << javascript_include_tag('s3_upload')
-        @include_s3_upload = true
-      end
 
       out << "\n<script type=\"text/javascript\">\n"
       out << "var s3_swf_#{@count}_object = s3_swf_init('s3_swf_#{@count}', {\n"
